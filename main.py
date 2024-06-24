@@ -15,8 +15,7 @@ from kivy.properties import ObjectProperty
 
 
 # local imports
-from pages.screen_manager import screen_manager, change_screen
-
+from pages.page_router import page_router, change_screen
 # =============================================================================
 CATALOG_ROOT: str = os.path.dirname(__file__)
 
@@ -28,13 +27,13 @@ class AppShell(GridLayout):
     rows: int = 1
 
     # -----------
-    # Builder.load_file(f"{os.getcwd()}/kv/app_shell.kv")
+    Builder.load_file(f"{os.getcwd()}/kv/app_shell.kv")
 
     def __init__(self, **kwargs) -> None:
         super(AppShell, self).__init__(**kwargs)
         #
-        self.add_widget(screen_manager)
-        self.ids.selector.values = [screen.name for screen in screen_manager.screens]
+        self.add_widget(page_router)
+        self.ids.selector.values = [screen.name for screen in page_router.screens]
         self.ids.selector.bind(text=change_screen)
 
 
