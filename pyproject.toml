@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "hyprconfig"
+version = "0.1.0"
+description = "gui configuration manager for hyprland"
+authors = ["josh s wilkinson <joshswilkinson@pm.me>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "pages" },
+    #    , {include= "packages/source"},
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+Kivy = "^2.3.0"
+pydantic = "^2.7.4"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = 'main:start'
